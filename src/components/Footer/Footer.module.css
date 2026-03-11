@@ -44,3 +44,15 @@
 .link:hover {
   color: var(--accent);
 }
+
+/* ──── Mobile: hide long project name to keep footer on one line ─────────── */
+@media (max-width: 600px) {
+  .projectName {
+    display: none;
+  }
+
+  /* Hide the separator that followed project name */
+  .inner > :nth-child(2) {
+    display: none;
+  }
+}

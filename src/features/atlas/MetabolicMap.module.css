@@ -128,3 +128,37 @@
   width: 12px;
   height: 12px;
 }
+
+/* ──── Mobile: horizontal legend + compact controls ─────────────────────── */
+@media (max-width: 900px) {
+  .legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    padding: 5px 8px;
+    gap: 3px 10px;
+  }
+
+  .legendItem {
+    font-size: 0.62rem;
+    gap: 4px;
+  }
+
+  .legendDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .controls {
+    top: 6px;
+    left: 6px;
+    gap: 3px;
+  }
+
+  .ctrl {
+    width: 26px;
+    height: 26px;
+  }
+}

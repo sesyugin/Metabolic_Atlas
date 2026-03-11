@@ -126,3 +126,65 @@
     padding: 0 14px;
   }
 }
+
+/* ──── Phone ≤ 600px: 2-row header ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header {
+    height: auto;
+    min-height: 92px;
+  }
+
+  .inner {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 7px 12px 5px;
+    height: auto;
+    gap: 4px;
+    row-gap: 0;
+  }
+
+  /* Row 1: title stretches */
+  .title {
+    flex: 1;
+    font-size: 0.83rem;
+    white-space: normal;
+    min-width: 0;
+  }
+
+  /* Row 1 right: compact controls */
+  .controls {
+    margin-left: 0;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Teacher button → icon only */
+  .teacherBtn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .teacherBtn span {
+    display: none;
+  }
+
+  /* Row 2: nav fills full width */
+  .nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5px;
+    gap: 5px;
+    padding-bottom: 3px;
+  }
+
+  .modeBtn {
+    flex: 1;
+    text-align: center;
+    padding: 5px 4px;
+    font-size: 0.8rem;
+  }
+}
