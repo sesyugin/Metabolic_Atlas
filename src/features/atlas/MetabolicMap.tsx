@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { metabolites, reactions, pathways } from '../../data';
 import { pathwayColors } from '../../theme/tokens';
 import type { MetabolicPathId, SelectionState } from '../../types';
@@ -82,9 +82,16 @@ export function MetabolicMap({
   const dragging = useRef(false);
   const lastPos = useRef({ x: 0, y: 0 });
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom((z) => Math.max(0.4, Math.min(3, z - e.deltaY * 0.001)));
+  // Attach wheel listener as non-passive so preventDefault() actually blocks page scroll
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoom((z) => Math.max(0.4, Math.min(3, z - e.deltaY * 0.001)));
+    };
+    svg.addEventListener('wheel', onWheel, { passive: false });
+    return () => svg.removeEventListener('wheel', onWheel);
   }, []);
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -177,7 +184,6 @@ export function MetabolicMap({
         ref={svgRef}
         viewBox={`0 0 ${VW} ${VH}`}
         className={styles.svg}
-        onWheel={handleWheel}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
