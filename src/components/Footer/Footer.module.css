@@ -1,0 +1,46 @@
+.footer {
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.projectName {
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.sep {
+  color: var(--line-strong);
+}
+
+.author {
+  color: var(--text-tertiary);
+}
+
+.link {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--accent);
+}

@@ -1,0 +1,302 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Scenario list */
+.scenarioList {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.scenarioCard {
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  text-align: left;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.scenarioCard:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.scenarioTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.scenarioSub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.scenarioMeta {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  display: flex;
+  gap: 6px;
+}
+
+/* Active scenario */
+.activeScenario {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100%;
+}
+
+.controlBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Full-width progress bar */
+.progressBarWrap {
+  height: 5px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Slide counter */
+.slideCounter {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.slideNum {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.slideTotal {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.backBtn {
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 0;
+  transition: opacity var(--transition);
+}
+
+.backBtn:hover {
+  opacity: 0.75;
+}
+
+.progressIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepIndicator {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.stepDots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  border: 2px solid var(--line-strong);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.dot.dotDone {
+  background: var(--line-strong);
+  border-color: var(--line-strong);
+}
+
+.dot.dotActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.2);
+}
+
+.scenarioHeader {
+  padding: 10px 0;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.scenarioHeaderTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  flex: 1;
+}
+
+/* Large navigation for 70" screens */
+.navBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.navBtn {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line-strong);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all var(--transition);
+  letter-spacing: -0.01em;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navBtnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.navBtnPrimary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Step card */
+.stepCard {
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  animation: stepIn 0.22s ease;
+  flex: 1;
+}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.stepDesc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* Discussion questions */
+.questionsSection {
+  background: var(--bg-card);
+  border: 1.5px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.questionsLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.questionsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.questionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.questionNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}

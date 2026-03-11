@@ -1,0 +1,56 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  overflow: hidden;
+  height: calc(100vh - var(--header-h) - var(--footer-h));
+}
+
+/* Teacher mode: wider right panel */
+[data-teacher='true'] .main {
+  grid-template-columns: 1fr 460px;
+}
+
+.mapArea {
+  min-height: 0;
+  overflow: hidden;
+  padding: 12px;
+}
+
+[data-teacher='true'] .mapArea {
+  padding: 16px;
+}
+
+.panel {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 320px;
+    height: auto;
+    min-height: calc(100vh - var(--header-h) - var(--footer-h));
+  }
+
+  .mapArea {
+    height: calc(50vh - 30px);
+  }
+
+  .panel {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    height: 320px;
+  }
+}

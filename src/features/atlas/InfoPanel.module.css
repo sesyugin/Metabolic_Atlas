@@ -1,0 +1,221 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.top {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+[data-teacher='true'] .content {
+  padding: 20px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 100%;
+  min-height: 200px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.88rem;
+  padding: 20px;
+}
+
+[data-teacher='true'] .empty {
+  font-size: 1.1rem;
+  gap: 18px;
+}
+
+.emptyIcon {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Card */
+.card {
+  animation: fadeSlide 0.2s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cardType {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+[data-teacher='true'] .cardType {
+  font-size: 0.85rem;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+[data-teacher='true'] .cardTitle {
+  font-size: 1.35rem;
+}
+
+.formula {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+.shortName {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+[data-teacher='true'] .cardDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.section {
+  margin-top: 14px;
+}
+
+.sectionLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+[data-teacher='true'] .sectionLabel {
+  font-size: 0.82rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  padding: 2px 8px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+[data-teacher='true'] .tag {
+  font-size: 0.9rem;
+  padding: 4px 12px;
+}
+
+.metaRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.energyTag {
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.keyNodeBadge {
+  margin-top: 14px;
+  padding: 6px 12px;
+  background: rgba(212, 32, 32, 0.08);
+  border: 1px solid rgba(212, 32, 32, 0.2);
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Clinical notes */
+.clinicalCard {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+[data-teacher='true'] .clinicalCard {
+  padding: 14px 16px;
+}
+
+.clinicalHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+[data-teacher='true'] .clinicalHeader {
+  font-size: 1rem;
+}
+
+.clinicalIcon {
+  font-size: 14px;
+}
+
+.clinicalRow {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+[data-teacher='true'] .clinicalRow {
+  font-size: 0.95rem;
+}
+
+.clinicalLabel {
+  font-weight: 600;
+  color: var(--text);
+}

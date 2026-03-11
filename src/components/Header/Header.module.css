@@ -1,0 +1,128 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  height: var(--header-h);
+  transition: background var(--transition);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+  padding: 0 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.sub {
+  color: var(--text);
+}
+
+/* Teacher mode: larger title */
+[data-teacher='true'] .title {
+  font-size: 1.15rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 16px;
+}
+
+.modeBtn {
+  padding: 5px 14px;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.modeBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.modeBtn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.teacherBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--line-strong);
+  transition: all var(--transition);
+}
+
+.teacherBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.teacherBtn.teacherActive {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background var(--transition), color var(--transition);
+}
+
+.themeBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .sub {
+    display: none;
+  }
+  .inner {
+    padding: 0 14px;
+  }
+}

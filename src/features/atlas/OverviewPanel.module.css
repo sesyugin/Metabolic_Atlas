@@ -1,0 +1,466 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.selectorSection {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+[data-teacher='true'] .selectorSection {
+  padding: 18px 20px;
+}
+
+.sectionTitle {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+[data-teacher='true'] .sectionTitle {
+  font-size: 0.82rem;
+}
+
+.pathwayList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pathwayBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.pathwayBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.pathwayBtn.pathwayActive {
+  background: var(--bg-card);
+  font-weight: 600;
+}
+
+[data-teacher='true'] .pathwayBtn {
+  font-size: 0.95rem;
+  padding: 6px 14px;
+}
+
+.pathwayDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.goalBox {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+  background: var(--bg-alt);
+}
+
+[data-teacher='true'] .goalBox {
+  padding: 16px 20px;
+}
+
+.goalLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-tertiary);
+  margin-bottom: 5px;
+}
+
+.goalText {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+[data-teacher='true'] .goalText {
+  font-size: 1rem;
+}
+
+.locationTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.progressSection {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+[data-teacher='true'] .progressSection {
+  padding: 16px 20px;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+[data-teacher='true'] .progressHeader {
+  font-size: 1rem;
+}
+
+.playerControls {
+  display: flex;
+  gap: 4px;
+}
+
+.playerBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+[data-teacher='true'] .playerBtn {
+  width: 38px;
+  height: 38px;
+}
+
+.playerBtn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.playerBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.progressBar {
+  height: 4px;
+  background: var(--bg-alt);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.35s ease;
+}
+
+.stepDots {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  border: 1.5px solid var(--line-strong);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.dot.dotDone {
+  background: var(--line-strong);
+}
+
+.dot.dotActive {
+  transform: scale(1.3);
+}
+
+/* Step card */
+.stepCard {
+  padding: 16px;
+  animation: stepIn 0.25s ease;
+  flex: 1;
+}
+
+[data-teacher='true'] .stepCard {
+  padding: 20px;
+}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.stepNum {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.stepFlow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.metabolitePill {
+  padding: 3px 10px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+[data-teacher='true'] .metabolitePill {
+  font-size: 1rem;
+  padding: 5px 14px;
+}
+
+.arrow {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.enzymeRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.enzymeIcon {
+  font-size: 14px;
+}
+
+.enzymeName {
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+[data-teacher='true'] .enzymeName {
+  font-size: 1.1rem;
+}
+
+.stepDesc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+[data-teacher='true'] .stepDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.cofactorRow, .energyRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.cofactorLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-teacher='true'] .cofactorLabel {
+  font-size: 0.85rem;
+}
+
+.cofactorTag {
+  padding: 1px 7px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.energyValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.reactionTypeBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: var(--text-tertiary);
+  letter-spacing: 0;
+}
+
+.reversibleBadge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 1px 7px;
+}
+
+.metaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+/* Clinical section */
+.clinicalSection {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.clinicalToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.clinicalToggle:hover {
+  background: var(--bg-hover);
+}
+
+[data-teacher='true'] .clinicalToggle {
+  font-size: 0.9rem;
+  padding: 6px 14px;
+}
+
+.clinicalCard {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  animation: stepIn 0.2s ease;
+}
+
+[data-teacher='true'] .clinicalCard {
+  padding: 14px 16px;
+}
+
+.clinicalTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+[data-teacher='true'] .clinicalTitle {
+  font-size: 1rem;
+}
+
+.clinicalDisease {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+[data-teacher='true'] .clinicalDisease {
+  font-size: 0.88rem;
+}
+
+.clinicalRow {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 8px;
+  margin-bottom: 4px;
+  align-items: start;
+}
+
+[data-teacher='true'] .clinicalRow {
+  grid-template-columns: 120px 1fr;
+}
+
+.clinicalLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+}
+
+[data-teacher='true'] .clinicalLabel {
+  font-size: 0.8rem;
+}
+
+.clinicalText {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+[data-teacher='true'] .clinicalText {
+  font-size: 0.92rem;
+}
+
+.placeholder {
+  padding: 24px 16px;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  text-align: center;
+}
