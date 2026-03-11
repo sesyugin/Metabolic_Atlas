@@ -8,7 +8,18 @@ export type MetabolicPathId =
   | 'gluconeogenesis'
   | 'glycogen_metabolism';
 
-export type AppMode = 'overview' | 'practice' | 'teacher';
+export type AppMode = 'overview' | 'practice' | 'exam' | 'teacher';
+
+// ─── Exam mode ───────────────────────────────────────────────────────────────
+export interface ExamQuestion {
+  id: string;
+  text: string;
+  options: [string, string, string, string];
+  correctIndex: 0 | 1 | 2 | 3;
+  explanation: string;
+  pathway: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
 
 export type Theme = 'light' | 'dark';
 

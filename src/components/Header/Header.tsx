@@ -12,6 +12,7 @@ interface HeaderProps {
 const modeLabels: Record<AppMode, string> = {
   overview: 'Обзор',
   practice: 'Практика',
+  exam: 'Экзамен',
   teacher: 'Преподаватель',
 };
 
@@ -27,7 +28,7 @@ export function Header({ mode, onModeChange, teacherMode, onTeacherToggle }: Hea
         </div>
 
         <nav className={styles.nav} aria-label="Режимы">
-          {(['overview', 'practice'] as AppMode[]).map((m) => (
+          {(['overview', 'practice', 'exam'] as AppMode[]).map((m) => (
             <button
               key={m}
               className={`${styles.modeBtn} ${mode === m && !teacherMode ? styles.active : ''}`}

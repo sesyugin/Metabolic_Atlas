@@ -22,8 +22,8 @@
   min-height: 0;
   overflow: hidden;
   padding: 12px;
-  /* Limit map height so it doesn't fill the entire viewport */
-  max-height: 72vh;
+  /* Desktop: fill full grid-cell height (side-by-side layout) */
+  height: 100%;
 }
 
 [data-teacher='true'] .mapArea {

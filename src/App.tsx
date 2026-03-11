@@ -8,6 +8,7 @@ import { InfoPanel } from './features/atlas/InfoPanel';
 import { OverviewPanel } from './features/atlas/OverviewPanel';
 import { PracticePanel } from './features/practice/PracticePanel';
 import { TeacherPanel } from './features/teacherMode/TeacherPanel';
+import { ExamPanel } from './features/exam/ExamPanel';
 import { EducationalVideoSection } from './features/video/EducationalVideoSection';
 import { teacherScenarios, practiceCases, reactionMap, pathways } from './data';
 import type {
@@ -268,6 +269,9 @@ export default function App() {
           />
         </InfoPanel>
       );
+    }
+    if (mode === 'exam') {
+      return <ExamPanel teacherMode={teacherMode} />;
     }
     return null;
   };

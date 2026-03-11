@@ -6,6 +6,9 @@
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
+  /* Prevent text selection during drag */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .svg {

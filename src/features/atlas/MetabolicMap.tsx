@@ -153,7 +153,10 @@ export function MetabolicMap({
   const keyNodeR = teacherMode ? 20 : 14;
   const strokeW = teacherMode ? 3 : 2;
   const fontSize = teacherMode ? 13 : 10;
-  const labelOffset = teacherMode ? 22 : 16;
+  const labelOffset = teacherMode ? 26 : 20;
+
+  // Format chemical formula with Unicode subscript digits for readability
+  const fmtFormula = (f: string) => f.replace(/\d/g, (d) => '₀₁₂₃₄₅₆₇₈₉'[parseInt(d)] ?? d);
 
   return (
     <div className={styles.wrapper} data-teacher={teacherMode ? 'true' : undefined}>
@@ -269,11 +272,11 @@ export function MetabolicMap({
                 {/* Reaction enzyme label with background */}
                 {(isHighlighted || isSelected || opacity === 1) && (() => {
                   const label = rxn.enzymeShortName ?? rxn.enzymeName.split(' ')[0];
-                  const lx = mx + nx * 14;
-                  const ly = my + ny * 14;
+                  const lx = mx + nx * 16;
+                  const ly = my + ny * 16;
                   const charW = (fontSize - 1) * 0.62;
-                  const bw = label.length * charW + 8;
-                  const bh = (fontSize - 1) + 6;
+                  const bw = label.length * charW + 10;
+                  const bh = (fontSize - 1) + 7;
                   return (
                     <g style={{ pointerEvents: 'none' }}>
                       <rect
@@ -283,7 +286,9 @@ export function MetabolicMap({
                         height={bh}
                         rx={3}
                         fill="var(--bg)"
-                        fillOpacity={0.85}
+                        fillOpacity={0.95}
+                        stroke="var(--line)"
+                        strokeWidth={0.5}
                       />
                       <text
                         x={lx}
@@ -346,8 +351,8 @@ export function MetabolicMap({
                   const label = met.name.length > 22 ? met.name.slice(0, 20) + '…' : met.name;
                   const ly = met.y + r + labelOffset;
                   const charW = fontSize * 0.6;
-                  const bw = label.length * charW + 8;
-                  const bh = fontSize + 4;
+                  const bw = label.length * charW + 10;
+                  const bh = fontSize + 6;
                   return (
                     <g style={{ pointerEvents: 'none' }}>
                       <rect
@@ -357,7 +362,9 @@ export function MetabolicMap({
                         height={bh}
                         rx={3}
                         fill="var(--bg)"
-                        fillOpacity={0.82}
+                        fillOpacity={0.96}
+                        stroke="var(--line)"
+                        strokeWidth={0.5}
                       />
                       <text
                         x={met.x}
@@ -374,17 +381,18 @@ export function MetabolicMap({
                     </g>
                   );
                 })()}
-                {met.formula && (
+                {met.formula && met.formula.length <= 10 && (
                   <text
                     x={met.x}
                     y={met.y}
-                    fontSize={fontSize - 2}
+                    fontSize={Math.max(fontSize - 3, 7)}
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fill={textFill}
+                    fontWeight="500"
                     style={{ pointerEvents: 'none' }}
                   >
-                    {met.formula.length > 8 ? '' : met.formula}
+                    {fmtFormula(met.formula)}
                   </text>
                 )}
               </g>
